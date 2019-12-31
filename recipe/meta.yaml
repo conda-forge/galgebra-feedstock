@@ -1,17 +1,17 @@
 {% set name = "galgebra" %}
-{% set version = "0.4.4" %}
+{% set version = "0.4.5" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/pygae/{{ name }}/archive/v{{ version }}.zip
-  sha256: 87a9341dac51d4a81e1d4ccad9f0a96cc6a9dc9cbc4a1235c2872c210275bc54
+  url: https://github.com/pygae/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: 1ef1291208071b5c074e3e0056e88d03b48281f9eecfa7fa177f53964ed24184
 
 build:
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
