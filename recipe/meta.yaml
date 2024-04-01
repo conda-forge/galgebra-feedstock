@@ -1,5 +1,5 @@
 {% set name = "galgebra" %}
-{% set version = "0.5.0" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/pygae/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 37df02aaa9edaa304a772fa0670363988ac785f5a660d2c7d477b852303a2a84
+  sha256: 7ff0d44118d23c6c14b05d4d27390b0b7d19f3326970794f3652c4c8b2d629ef
 
 build:
-  number: 3
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
