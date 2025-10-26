@@ -11,15 +11,14 @@ source:
 
 build:
   number: 1
+  noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - python
     - pip
+    - setuptools
   run:
     - python
     - sympy
