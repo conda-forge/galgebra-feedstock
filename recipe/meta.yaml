@@ -10,21 +10,22 @@ source:
   sha256: a8cb4e3b96da198d968b76ab345a4f3b98a19b2771393f4482b2f8e7d72abef9
 
 build:
-  number: 0
+  number: 1
+  noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python
+    - python >={{ python_min }}
     - sympy
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - galgebra
 
